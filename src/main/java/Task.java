@@ -12,7 +12,6 @@ import java.time.Duration;
 
 public class Task {
     public static void main(String[] args) throws InterruptedException, IOException {
-
         // Extracting the 3 values ( websiteURL , filterText, expectedText ) from excel sheet
         String[] sheetValues = extractSheetValues();
         String websiteURL = sheetValues[0];
@@ -46,7 +45,7 @@ public class Task {
 
     private static void filterTable(WebDriver driver, String filterText) throws InterruptedException {
         Thread.sleep(1000);
-        WebElement element = driver.findElement(By.xpath("//input[@id='global-filter']"));
+        WebElement element = driver.findElement(By.xpath("//input[@aria-label='Game Name Filter Input']"));
         element.sendKeys(filterText);
         element.click();
 
